@@ -1,0 +1,114 @@
+ECHOCODE - PROJECT REQUIREMENTS
+================================
+
+SYSTEM REQUIREMENTS
+-------------------
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+- Google Chrome Browser (for voice features)
+- Internet connection (required for APIs)
+
+BACKEND DEPENDENCIES (Node.js)
+-------------------------------
+Production:
+- express@^4.18.2                 # Web framework
+- cors@^2.8.5                     # CORS middleware
+- dotenv@^16.3.1                  # Environment variables
+- @google-cloud/aiplatform@^3.11.0    # Google Cloud AI
+- @google-cloud/vertexai@^1.1.0       # Vertex AI SDK
+- @google-cloud/firestore@^7.1.0      # Firestore database
+- axios@^1.6.2                    # HTTP client
+
+Development:
+- nodemon@^3.0.2                  # Auto-restart server
+
+FRONTEND DEPENDENCIES (React)
+------------------------------
+Production:
+- react@^18.2.0                   # React library
+- react-dom@^18.2.0               # React DOM
+- react-scripts@5.0.1             # Create React App scripts
+- @elevenlabs/react@^1.0.0        # ElevenLabs React SDK
+- @monaco-editor/react@^4.6.0     # Code editor component
+- axios@^1.6.2                    # HTTP client
+
+CLOUD SERVICES & APIs
+----------------------
+- Google Cloud Platform account
+  - Vertex AI API (enabled)
+  - Cloud Run (for deployment)
+  - Firestore (enabled)
+  
+- ElevenLabs Account
+  - API Key with permissions:
+    * ElevenLabs Agents (Write)
+    * Speech to Text (Access)
+    * Text to Speech (Access)
+    * Voices (Read)
+
+GOOGLE CLOUD APIS TO ENABLE
+----------------------------
+1. Vertex AI API (aiplatform.googleapis.com)
+2. Cloud Run API (run.googleapis.com)
+3. Cloud Firestore API (firestore.googleapis.com)
+4. Cloud Build API (cloudbuild.googleapis.com)
+
+CREDENTIALS NEEDED
+------------------
+1. Google Cloud service account JSON key
+   - Role: Vertex AI User
+   - Location: backend/vocoder-key.json
+
+2. ElevenLabs API Key
+   - Get from: https://elevenlabs.io/app/settings/api-keys
+
+3. ElevenLabs Agent ID
+   - Create at: https://elevenlabs.io/app/conversational-ai
+
+INSTALLATION COMMANDS
+---------------------
+Backend:
+  cd backend
+  npm install
+
+Frontend:
+  cd frontend
+  npm install
+
+ENVIRONMENT VARIABLES REQUIRED
+-------------------------------
+Backend (.env):
+  PORT=3001
+  GOOGLE_CLOUD_PROJECT_ID=your-project-id
+  GOOGLE_APPLICATION_CREDENTIALS=./vocoder-key.json
+  ELEVENLABS_API_KEY=your-key
+  NODE_ENV=development
+  CORS_ORIGIN=http://localhost:3000
+
+Frontend (.env):
+  REACT_APP_BACKEND_URL=http://localhost:3001
+  REACT_APP_ELEVENLABS_API_KEY=your-key
+  REACT_APP_ELEVENLABS_AGENT_ID=your-agent-id
+
+BROWSER REQUIREMENTS
+--------------------
+- Google Chrome (recommended) - for Web Speech API
+- Microphone access required for voice features
+- Modern browser with ES6+ support
+
+PORTS USED
+----------
+- Backend: 3001
+- Frontend: 3000
+
+MINIMUM SYSTEM SPECS
+--------------------
+- RAM: 4GB minimum, 8GB recommended
+- Storage: 500MB for dependencies
+- OS: Windows 10+, macOS 10.15+, or Linux
+
+OPTIONAL (for deployment)
+-------------------------
+- Docker (for containerization)
+- Google Cloud SDK (gcloud CLI)
+- Git (for version control)
